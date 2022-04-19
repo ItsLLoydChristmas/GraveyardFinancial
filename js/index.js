@@ -193,7 +193,7 @@ function getContractBalance() {
 function getFishermen(currentAddr) {
     contract.methods.getMyMiners(currentAddr).call().then(res=>{
         res = (Math.round(res * 100) / 100).toFixed(2);
-        $("#frmrs").text(res + "HEADSTONES");
+        $("#frmrs").text(res + " STONES");
         console.log(res);
     })
 }

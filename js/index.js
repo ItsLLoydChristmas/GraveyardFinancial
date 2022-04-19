@@ -1,7 +1,7 @@
-var CONTRACT_ADDRESS = '0x9801e942F8143887eaD706f9Ed3e0848501F8995';
+var CONTRACT_ADDRESS = 'NULL';
 
-var referrer = '0x3eAfdeBb1CED16D21b875eF591B45c61a1ad7556'
-var upline = '0x3eAfdeBb1CED16D21b875eF591B45c61a1ad7556'
+var referrer = 'NULL'
+var upline = 'NULL'
 
 
 var getUrlParameter = function getUrlParameter(sParam) {

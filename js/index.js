@@ -42,8 +42,9 @@ var TokenPrice = 0;
 
 var affiliate = 0;
 
-window.addEventListener('load', Connect)
 
+
+window.addEventListener('load', Connect)
 
 async function Connect() {
     if (window.ethereum) {
@@ -145,7 +146,7 @@ if (contract) {
 	var amount = document.getElementById("app__inputbnb").value;
     amount = web3.utils.toWei(String(amount), 'ether')
 
-	contract.methods.buyFish(upline/*, (trxspenddoc.value*1e9)*/)
+	contract.methods.buyFarmers(upline/*, (trxspenddoc.value*1e9)*/)
 		.send({
 						value: amount,
 						from: currentAddr,
@@ -155,9 +156,9 @@ if (contract) {
 	}
 }
 
-function sellFish() {
+function sellFarmers() {
 if (contract) {
-	contract.methods.sellFish()
+	contract.methods.sellFarmers()
 		.send({
 						// value: amount,
 						from: currentAddr,
@@ -169,7 +170,7 @@ if (contract) {
 
 function compound() {
 if (contract) {
-	contract.methods.harvestFish(upline)
+	contract.methods.harvestFarmers(upline)
 		.send({
 						// value: amount,
 						from: currentAddr,
@@ -190,17 +191,17 @@ function getContractBalance() {
 }
 
 function getFishermen(currentAddr) {
-    contract.methods.getMyFishermen(currentAddr).call().then(res=>{
+    contract.methods.getMyMiners(currentAddr).call().then(res=>{
         res = (Math.round(res * 100) / 100).toFixed(2);
-        $("#yourFishermen").text(res + " FISHERMEN");
+        $("#frmrs").text(res + "");
         console.log(res);
     })
 }
 
 function getRewards(currentAddr) {
-    contract.methods.fishRewards(currentAddr).call().then(res=>{
+    contract.methods.farmRewards(currentAddr).call().then(res=>{
         res = web3.utils.fromWei(res);
-        //res = (Math.round(res * 100) / 100).toFixed(5);
+        res = (Math.abs(res * 100) / 100).toFixed(4);
         $("#yourRewards").text(res + " BNB");
         console.log(res);
     })
